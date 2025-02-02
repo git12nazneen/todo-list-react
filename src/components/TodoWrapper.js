@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TodoForm from './TodoForm'
 import { v4 as uuidv4 } from 'uuid';
+import Todo from './Todo';
 uuidv4()
 const TodoWrapper = () => {
   const [todos, setTodos] = useState([])
@@ -11,6 +12,9 @@ const TodoWrapper = () => {
   return (
     <div className='TodoWrapper'>
       <TodoForm addTodo={addTodo}/>
+      {todos.map((todo,index)=>(
+      <Todo todo={todo} key={index}/>
+      ))}
     </div>
   )
 }

@@ -1,9 +1,15 @@
 import React from 'react'
-
-const Todo = () => {
+import { FilePenLine, Trash2 } from 'lucide-react';
+const Todo = ({todo}) => {
+ const {task} = todo
+ console.log('h' , todo)
   return (
-    <div>
-      
+    <div className='Todo'>
+      <p>{task}</p>
+      <div>
+      <FilePenLine />
+      <Trash2 />
+      </div>
     </div>
   )
 }
