@@ -11,14 +11,16 @@ const TodoWrapper = () => {
   }
   const toggleComplete = id =>{
     setTodos(todos.map(todo=>todo.id===id? {...todo, completed:!todo.completed}:todo))
-    // setTOdos(todos.map(todo =>todo.id ===id ? {...todo, completed: !todo.completed}:todo))
-    // setTOdos(todos.map(todo =>todo.id ===id ? {...todo,} : todo))
+  }
+  const deleteTodo = id =>{
+    // setTodos(todos.filter(todo.id !== todo))
+    setTodos(todos.filter(todo=> todo.id !== id))
   }
   return (
     <div className='TodoWrapper'>
       <TodoForm addTodo={addTodo}/>
       {todos.map((todo,index)=>(
-      <Todo todo={todo} key={index} toggleComplete={toggleComplete}/>
+      <Todo todo={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo}/>
       ))}
     </div>
   )
