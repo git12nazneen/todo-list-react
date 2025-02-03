@@ -31,12 +31,18 @@ const TodoWrapper = () => {
       )
     );
   };
+  const editTask = (task, id) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? {...todo, task: task, isEditing: !todo.isEditing} : todo
+    ))
+  }
   return (
     <div className="TodoWrapper">
+      <h1> Fun Todo Form</h1>
       <TodoForm addTodo={addTodo} />
       {todos.map((todo, index) =>
         todo.isEditing ? (
-          <TodoEditForm />
+          <TodoEditForm editTodo={editTask} todo={todo}/>
         ) : (
           <Todo
             todo={todo}

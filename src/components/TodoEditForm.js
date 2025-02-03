@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const TodoEditForm = ({editTodo, todo}) => {
-  const [value, setValue] = useState("")
+  const [value, setValue] = useState(todo.task)
   const handleSubmit = e =>{
     e.preventDefault()
     editTodo(value, todo.id)
