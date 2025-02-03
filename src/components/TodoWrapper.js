@@ -9,11 +9,16 @@ const TodoWrapper = () => {
     setTodos([...todos , {id:uuidv4(), task:todo ,isEditing:false, completed:false}])
     console.log(todos)
   }
+  const toggleComplete = id =>{
+    setTodos(todos.map(todo=>todo.id===id? {...todo, completed:!todo.completed}:todo))
+    // setTOdos(todos.map(todo =>todo.id ===id ? {...todo, completed: !todo.completed}:todo))
+    // setTOdos(todos.map(todo =>todo.id ===id ? {...todo,} : todo))
+  }
   return (
     <div className='TodoWrapper'>
       <TodoForm addTodo={addTodo}/>
       {todos.map((todo,index)=>(
-      <Todo todo={todo} key={index}/>
+      <Todo todo={todo} key={index} toggleComplete={toggleComplete}/>
       ))}
     </div>
   )
